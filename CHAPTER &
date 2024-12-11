@@ -1,0 +1,33 @@
+In this chapter, I'll learn how to add animation to an app to enhance the user experience (UX) by conveying actions effectively. While animations can improve UX, using too many without clear purpose can negatively impact it. Flutter offers two types of animations: physics-based and Tween. This chapter will focus on Tween animations, which I'll explore to create smooth and purposeful transitions in my app.
+The FlatButton child is the label that shows the message “Tap to Grow Width.” I am using \n to
+continue the text on the next line and using the $ sign to pass the _width value.
+Once the FlatButton is pressed, you add a call to the method _increaseWidth() in the
+onPressed property. Ignore the code editor’s red squiggly lines since you have not created the variables and method yet.
+The AnimatedCrossFade widget provides a great cross-fade between two children widgets. The
+AnimatedCrossFade constructor takes duration, firstChild, secondChild, crossFadeState,
+sizeCurve, and many other arguments.
+The AnimatedContainer constructor takes a duration argument, and you use the Duration
+class to specify 500 milliseconds. The 500 milliseconds equals half a second. The curve argument gives
+the animation a spring effect by using Curves.elasticOut. The onPressed argument calls the
+_increaseWidth() method to change the _width variable dynamically
+The AnimatedCrossFade constructor takes a duration argument, and you use the Duration class to
+specify 500 milliseconds. The sizeCurve argument gives the animation between the two children’s size a
+spring effect by using Curves.bounceOut. The crossFadeState argument sets the child widget to be
+shown once the animation is completed.
+If you need to hide or partially hide a widget, AnimatedOpacity is a great way to animate fading
+over time. The AnimatedOpacity constructor the takes duration, opacity, curve, and child
+arguments. For this example, you do not use a curve; since you want a smooth fade-out and fade-in,
+it’s not necessary.
+The AnimatedOpacity widget takes a duration parameter, and you use the Duration class to specify
+500 milliseconds. The opacity parameter is a value from 0.0 to 1.0. The opacity value of 1.0 is fully
+visible, and as the value changes toward zero, it starts to fade away. Once it reaches zero, it’s invisible.
+The AnimationController class gives you increased flexibility in animation. The animation can
+be played forward or reverse, and you can stop it. The fling animation uses a physics simulation
+like a spring.
+The AnimationController class produces linear values for a giving duration, and it tries to display
+a new frame at around 60 frames per second. The AnimationController class needs a TickerProvider class by passing the vsync argument in the constructor. The vsync prevents off-screen
+animations from consuming unnecessary resources
+The AnimationController class at first can seem complex to use because of the different classes needed. The following are the basic steps that you take to create a custom animation 
+A staggered animation triggers visual changes in sequential order. The animation changes can occur one after the other; they can have gaps without animations and overlap each other. One AnimationController class controls multiple Animation objects that specify the animation in a timeline
+(Interval).
+ My app to improve the UX. You implemented AnimatedContainer to animate the width of a Container widget with a beautiful spring effect by using Curves.elasticOut. You added the AnimatedCrossFade widget to cross-fade between two children widgets. The color is animated from amber to green while at the same time the widget increased or decreased in width and height. To fade a widget in, out, or partially, you added the AnimatedOpacity widget. The AnimatedOpacity widget uses the opacity property passed over a period of time (Duration) to fade the widget. The AnimationController class allows the creation of custom animations.
